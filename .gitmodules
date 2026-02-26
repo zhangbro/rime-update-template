@@ -1,0 +1,6 @@
+[submodule "00_sbxlm"]
+	path = 00_sbxlm
+	url = git@github.com:zhangbro/fcitx5-rime-config.git
+[submodule "01_custom"]
+	path = 01_custom
+	url = git@github.com:zhangbro/fcitx5-rime-config.git

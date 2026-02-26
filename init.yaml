@@ -1,0 +1,44 @@
+# 初始化库时候的配置
+init:
+  # 是否转换换行符, CRLF ,LF ,CR ,NONE（或者不配置）
+  line-splitter: LF
+  # 主库的git branch
+  git-branch: main
+  # 主库的git url
+  git-url: git@github.com:zhangbro/fcitx5-rime-config.git
+  # 备份文件夹
+  backup-folder: ./02_backup
+
+# 子模块的配置，以当前文件夹为基准
+subdir:
+  # 子模块的别名
+  - name: sbxlm
+    # 子模块的本地路径
+    path: ./00_sbxlm
+    # 类型：gitsubmodule: 作为一个子模块, ln: 作为一个软链接
+    type: gitsubmodule
+    # 子模块的git-url, 如果是ln，则配置被软链接的路径(绝对路径)
+    url: git@github.com:zhangbro/fcitx5-rime-config.git
+    # 子模块的分支，type=gitsubmodule时有效
+    branch: sbxlm
+    # 该子模块对应的文件夹是否添加到主库的.gitignore中, type=ln时有效
+    is-ignored: false
+    # 拷贝配置的时候，忽略以下文件（夹），这个配置跟主库gitignore没关系
+    ignore:
+      - "*.dict"
+    # 以下文件（夹）在目标处创建软链接而非拷贝，路径相对于子模块
+    symlink: []
+
+  - name: custom
+    path: ./01_custom
+    type: gitsubmodule
+    url: git@github.com:zhangbro/fcitx5-rime-config.git
+    branch: custom
+    is-ignored: false
+
+  - name: ln
+    path: ./98_rime_实际使用的配置
+    type: ln
+    url: /Users/zhangbro/.local/share/fcitx5/rime/
+    is-ignored: true
+  
